@@ -1,14 +1,15 @@
 import os
+from dotenv import load_dotenv
 
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-DOWNLOAD_DIR = os.path.join(BASE_DIR, "output", "certidoes_geradas")
-
+load_dotenv()
 
 SETTINGS = {
-    "receita_federal": "https://exemplo.gov.br/certidao1",
-    "justica_federal": "https://exemplo.jf.br/certidao2",
     "cndt": "https://cndt-certidao.tst.jus.br/inicio.faces",
+}
+
+CNPJS = {
+    "QI_SDC": os.getenv("CNPJ_QI_SDC"),
+    "QI_GESTORA": os.getenv("CNPJ_QI_GESTORA"),
+    "QI_DISTRIBUIDORA": os.getenv("CNPJ_QI_DISTRIBUIDORA"),
+    "SINGULARE": os.getenv("CNPJ_SINGULARE"),
 }
