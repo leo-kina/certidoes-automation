@@ -2,5 +2,4 @@ selenium
 webdriver-manager
 requests
 python-dotenv
-pyautogui  
-pynput
+pyautogui 

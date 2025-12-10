@@ -23,17 +23,20 @@ def emitir_cndt(driver, dados):
 
 
     cnpj = dados["cnpj"]
-    print("⌨️ Digitando CNPJ manualmente...")
+    print("Digitando CNPJ manualmente...")
     for char in cnpj:
         campo_cnpj.send_keys(char)
         time.sleep(0.12)  
-
-    print("⚠️ Resolva o CAPTCHA manualmente e depois pressione Enter no terminal.")
     input()
+
+
+'''    print("Resolva o CAPTCHA manualmente e depois pressione Enter no terminal.")
+
 
 
     botao_gerar = wait.until(
         EC.element_to_be_clickable((By.ID, "gerarCertidaoForm:botaoGerar"))
     )
     botao_gerar.click()
-    print("📄 Certidão sendo gerada...")
+    print("Certidão sendo gerada...")
+'''

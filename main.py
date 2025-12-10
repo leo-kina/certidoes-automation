@@ -17,7 +17,7 @@ def executar(site, cnpj_key="SINGULARE"):
             print("Site não configurado.")
             return
 
-        print("✅ Certidão emitida!")
+        print("Certidão emitida!")
 
     except Exception as e:
         print(f"Erro: {e}")
