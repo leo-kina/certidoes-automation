@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import base64
 
+
 def salvar_pdf(driver, caminho):
     print_options = {
         "landscape": False,
@@ -37,7 +38,7 @@ def emitir_regularidade_fgts(driver, dados):
 
 
     cnpj = dados["cnpj"]
-    print("Digitando CNPJ manualmente...")
+    print("Digitando CNPJ manualmente")
     for char in cnpj:
         campo_cnpj.send_keys(char)
         time.sleep(0.12)
@@ -59,7 +60,10 @@ def emitir_regularidade_fgts(driver, dados):
         EC.element_to_be_clickable((By.XPATH, "//input[@value='Visualizar']"))
     )
     botao_emitir.click()
-    salvar_pdf(driver, "crf_fgts.pdf")
+    nome_limpo =  (dados["nome"])
+    caminho = fr"C:\Users\leonardo.kina\Downloads\Certidoes_teste\Certidao_regularidade_trabalhista_{nome_limpo}.pdf"
+
+    salvar_pdf(driver, caminho)
 
 
     
