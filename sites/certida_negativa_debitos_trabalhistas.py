@@ -32,4 +32,6 @@ def emitir_cndt(driver, dados):
         EC.element_to_be_clickable((By.XPATH, "//input[@value='Emitir Certidão']"))
     )
     botao_emitir.click()
+    time.sleep(2)   
+
 
