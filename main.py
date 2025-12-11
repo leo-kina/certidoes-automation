@@ -43,4 +43,5 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("regularidade_fgts", empresa_key)
 
 if __name__ == "__main__":
-    emitir_todas("SINGULARE")
+    executar("cndt", "SINGULARE")
+    #emitir_todas("SINGULARE")

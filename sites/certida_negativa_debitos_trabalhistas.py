@@ -28,15 +28,8 @@ def emitir_cndt(driver, dados):
         campo_cnpj.send_keys(char)
         time.sleep(0.12)  
     input()
-
-
-'''    print("Resolva o CAPTCHA manualmente e depois pressione Enter no terminal.")
-
-
-
-    botao_gerar = wait.until(
-        EC.element_to_be_clickable((By.ID, "gerarCertidaoForm:botaoGerar"))
+    botao_emitir = wait.until(
+        EC.element_to_be_clickable((By.XPATH, "//input[@value='Emitir Certidão']"))
     )
-    botao_gerar.click()
-    print("Certidão sendo gerada...")
-'''
+    botao_emitir.click()
+
