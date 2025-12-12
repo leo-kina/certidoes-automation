@@ -2,17 +2,20 @@ from core.driver import criar_driver
 from config.settings import SETTINGS
 from sites.certida_negativa_debitos_trabalhistas import emitir_cndt
 from sites.certidao_regularidade_fgts import emitir_regularidade_fgts
-from data.data import empresas
+from sites.Certidao_Promotoria_Justica_Estadual import emitir_c_promotoria_justica_estadual
+from data.data import empresas, razao_social
 
 
-def executar(site, empresa_key="SINGULARE"):
+def executar(site, empresa_key="QI_SDC", razao_key="RQI_SDC"):
 
 
     dados = empresas.get(empresa_key)
+    razao_social1 = razao_social.get(razao_key)
 
     if not dados:
         print(f"Empresa '{empresa_key}' não encontrada no data.py")
         return
+
 
 
     dados["url"] = SETTINGS.get(site)
@@ -29,8 +32,12 @@ def executar(site, empresa_key="SINGULARE"):
 
         elif site == "regularidade_fgts":
             emitir_regularidade_fgts(driver, dados)
-
-        print("Certidão emitida com sucesso!")
+            print("Certidão emitida com sucesso!")
+        elif site == "c_promotoria_justica_estadual":
+            emitir_c_promotoria_justica_estadual(driver,razao_social1,dados)
+            print("Certidao emitida")
+     
+        
 
     except Exception as e:
         print(f"Erro durante a emissão: {e}")
@@ -41,6 +48,9 @@ def executar(site, empresa_key="SINGULARE"):
 def emitir_todas(empresa_key="SINGULARE"):
     executar("cndt", empresa_key)
     executar("regularidade_fgts", empresa_key)
+    executar("cn_tributos_municipais",empresa_key)
+    executar("c_promotoria_justica_estadual",empresa_key, "RSINGULARE")
 
 if __name__ == "__main__":
-    emitir_todas("SINGULARE")
+    executar("c_promotoria_justica_estadual", "SINGULARE", "RSINGULARE")
+    #emitir_todas("QI_SDC")
