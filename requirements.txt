@@ -3,9 +3,3 @@ webdriver-manager
 requests
 python-dotenv
 pyautogui 
-'''    print("Digite manualmente o CAPTCHA, e depois clique no enter (no terminal)")
-    input()
-    botao_emitir_final = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//input[@value='Emitir Certidão']"))
-    )
-    botao_emitir_final.click()'''
