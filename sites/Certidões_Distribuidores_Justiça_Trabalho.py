@@ -16,33 +16,28 @@ def emitir_distribuidores_justica_trabalho(driver, dados):
 
  
     arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
-    input()
-    select_estado = Select(driver.find_element(By.ID, "tipoPessoa"))
-    select_estado.select_by_visible_text("Pessoa Jurídica")
+
 
     
-    time.sleep(2.5)
+    time.sleep(1)
 
         
     campo_cnpj = wait.until(
-        EC.presence_of_element_located((By.ID, "txtCnpj"))
+        EC.presence_of_element_located((By.ID, "mat-input-0"))
     )
     campo_cnpj.click()
     time.sleep(1.2)
     for char in dados["cnpj"]:
         campo_cnpj.send_keys(char)
         time.sleep(0.16)
-    botao_proximo = wait.until(
-        EC.element_to_be_clickable((By.ID, "btnProximo1"))
-    )
-    botao_proximo.click()
     print('Resolva o Captcha dps clique no Enter')
     input()
     botao_emitir = wait.until(
-    EC.visibility_of_element_located((By.ID, "btnGerarCertidao"))
-)
-
+        EC.element_to_be_clickable((By.XPATH, '//button[span[text()=" Emitir "]]'))
+    )
     botao_emitir.click()
+
+    input()
 
 
     print("Aguardando download do PDF")
