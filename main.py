@@ -3,6 +3,7 @@ from config.settings import SETTINGS
 from sites.certida_negativa_debitos_trabalhistas import emitir_cndt
 from sites.certidao_regularidade_fgts import emitir_regularidade_fgts
 from data.data import empresas, razao_social
+from sites.certidao_negativa_divida_ativa_uniao import emitir_cn_divida_ativa_uniao
 from sites.Certidões_Distribuidores_Justiça_Trabalho import emitir_distribuidores_justica_trabalho
 
 def executar(site, empresa_key="SINGULARE", razao_key="RSINGULARE"):
@@ -35,6 +36,8 @@ def executar(site, empresa_key="SINGULARE", razao_key="RSINGULARE"):
         elif site == "c_distribuidores_justica_trabalho":
             emitir_distribuidores_justica_trabalho(driver, dados)
             print("Certidao emitida")
+        elif site == "cn_dividia_ativa_uniao":
+            emitir_cn_divida_ativa_uniao(driver,dados)
 
      
         
@@ -50,7 +53,9 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("regularidade_fgts", empresa_key)
     executar("cn_tributos_municipais",empresa_key)
     executar("c_distribuidores_justica_trabalho", empresa_key)
+    executar("cn_dividia_ativa_uniao", empresa_key)
 
 if __name__ == "__main__":
-    executar("c_distribuidores_justica_trabalho", "SINGULARE")
+    #executar("c_distribuidores_justica_trabalho", "SINGULARE")
     #emitir_todas("QI_GESTORA")
+    executar("cn_dividia_ativa_uniao", "SINGULARE")

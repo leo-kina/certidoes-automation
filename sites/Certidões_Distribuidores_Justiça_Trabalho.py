@@ -36,8 +36,14 @@ def emitir_distribuidores_justica_trabalho(driver, dados):
         EC.element_to_be_clickable((By.XPATH, '//button[span[text()=" Emitir "]]'))
     )
     botao_emitir.click()
+    time.sleep(7)
+    botao_imprimir = driver.find_element(By.XPATH, '//button[span[text()="Imprimir"]]')
+    botao_imprimir.click()
+    time.sleep(1.4)
+    botao_imprimir = driver.find_element(By.XPATH, '//button[span[text()="Imprimir"]]')
+    botao_imprimir.click()
 
-    input()
+
 
 
     print("Aguardando download do PDF")
@@ -57,7 +63,7 @@ def emitir_distribuidores_justica_trabalho(driver, dados):
         return
 
   
-    nome_final = f"Certidao_Negativa_Debitos_{dados['nome']}.pdf"
+    nome_final = f"Certidao_Distribuidores_Justiça_Trabalho{dados['nome']}.pdf"
     caminho_final = os.path.join(pasta_final, nome_final)
 
     os.rename(arquivo_pdf_novo, caminho_final)
