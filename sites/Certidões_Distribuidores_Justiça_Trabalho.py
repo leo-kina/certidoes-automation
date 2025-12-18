@@ -40,34 +40,11 @@ def emitir_distribuidores_justica_trabalho(driver, dados):
     botao_imprimir = driver.find_element(By.XPATH, '//button[span[text()="Imprimir"]]')
     botao_imprimir.click()
     time.sleep(1.4)
-    botao_imprimir = driver.find_element(By.XPATH, '//button[span[text()="Imprimir"]]')
-    botao_imprimir.click()
+    print('Salve manualmente, quando terminar clique no enter')
+    input()
 
 
 
 
-    print("Aguardando download do PDF")
-    arquivo_pdf_novo = None
-    timeout = time.time() + 20  
-
-    while time.time() < timeout:
-        arquivos_depois = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
-        novos = list(set(arquivos_depois) - set(arquivos_antes))
-        if novos:
-            arquivo_pdf_novo = novos[0]
-            break
-        time.sleep(0.4)
-
-    if not arquivo_pdf_novo:
-        print("Nenhum PDF foi baixado")
-        return
-
-  
-    nome_final = f"Certidao_Distribuidores_Justiça_Trabalho{dados['nome']}.pdf"
-    caminho_final = os.path.join(pasta_final, nome_final)
-
-    os.rename(arquivo_pdf_novo, caminho_final)
-
-    print("PDF salvo em:", caminho_final)
-
+   
  

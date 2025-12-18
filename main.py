@@ -53,9 +53,9 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("regularidade_fgts", empresa_key)
     executar("cn_tributos_municipais",empresa_key)
     executar("c_distribuidores_justica_trabalho", empresa_key)
-    executar("cn_dividia_ativa_uniao", empresa_key)
+
 
 if __name__ == "__main__":
-    #executar("c_distribuidores_justica_trabalho", "SINGULARE")
+    executar("c_distribuidores_justica_trabalho", "SINGULARE")
     #emitir_todas("QI_GESTORA")
-    executar("cn_dividia_ativa_uniao", "SINGULARE")
+
