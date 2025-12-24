@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
-def emitir_distribuidores_justica_trabalho(driver, dados):
+def emitir_distribuidores_justica_trabalho1(driver, dados):
     driver.get(dados["url"])
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)

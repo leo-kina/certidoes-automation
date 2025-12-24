@@ -6,9 +6,8 @@ load_dotenv()
 SETTINGS = {
     "cndt": "https://cndt-certidao.tst.jus.br/inicio.faces",
     "regularidade_fgts": "https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf",
-    "cn_dividia_ativa_uniao": "https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cnpj",
-    "c_promotoria_justica_estadual":"https://sis.mpsp.mp.br/atendimentocidadao/Ouvidoria/Manifestacao/Certidao?tipoCertidaoManifestacaoOuvidoria=Criminal#step-1",
-    "c_distribuidores_justica_trabalho":"https://pje.trt2.jus.br/certidoes/trabalhista/emissao"
+    "c_distribuidores_justica_trabalho2":"https://pje.trt2.jus.br/certidoes/trabalhista/emissao",
+    "c_distribuidores_justica_trabalho1":"https://pje.trt1.jus.br/certidoes/trabalhista/emissao"
 
 }
 

@@ -1,29 +1,26 @@
 from core.driver import criar_driver
 from config.settings import SETTINGS
+from data.data import empresas
+
 from sites.certida_negativa_debitos_trabalhistas import emitir_cndt
 from sites.certidao_regularidade_fgts import emitir_regularidade_fgts
-from data.data import empresas, razao_social
-from sites.certidao_negativa_divida_ativa_uniao import emitir_cn_divida_ativa_uniao
-from sites.Certidões_Distribuidores_Justiça_Trabalho import emitir_distribuidores_justica_trabalho
-
-def executar(site, empresa_key="SINGULARE", razao_key="RSINGULARE"):
+from sites.Certidões_Distribuidores_Justiça_Trabalho1 import emitir_distribuidores_justica_trabalho1
+from sites.Certidões_Distribuidores_Justiça_Trabalho2 import emitir_distribuidores_justica_trabalho2
 
 
+def executar(site, empresa_key="SINGULARE"):
     dados = empresas.get(empresa_key)
-    razao_social1 = razao_social.get(razao_key)
 
     if not dados:
-        print(f"Empresa '{empresa_key}' não encontrada no data.py")
+        print(f"Empresa '{empresa_key}' não encontrada")
         return
 
-
-
-    dados["url"] = SETTINGS.get(site)
-
-    if not dados["url"]:
-        print(f"Site '{site}' não encontrado no SETTINGS.")
+    url = SETTINGS.get(site)
+    if not url:
+        print(f"Site '{site}' não encontrado no SETTINGS")
         return
 
+    dados["url"] = url
     driver = criar_driver()
 
     try:
@@ -32,15 +29,14 @@ def executar(site, empresa_key="SINGULARE", razao_key="RSINGULARE"):
 
         elif site == "regularidade_fgts":
             emitir_regularidade_fgts(driver, dados)
-            print("Certidão emitida com sucesso!")
-        elif site == "c_distribuidores_justica_trabalho":
-            emitir_distribuidores_justica_trabalho(driver, dados)
-            print("Certidao emitida")
-        elif site == "cn_dividia_ativa_uniao":
-            emitir_cn_divida_ativa_uniao(driver,dados)
 
-     
-        
+        elif site == "c_distribuidores_justica_trabalho1":
+            emitir_distribuidores_justica_trabalho1(driver, dados)
+
+        elif site == "c_distribuidores_justica_trabalho2":
+            emitir_distribuidores_justica_trabalho2(driver, dados)
+
+        print("✅ Certidão emitida com sucesso")
 
     except Exception as e:
         print(f"Erro durante a emissão: {e}")
@@ -48,14 +44,14 @@ def executar(site, empresa_key="SINGULARE", razao_key="RSINGULARE"):
     finally:
         driver.quit()
 
+
 def emitir_todas(empresa_key="SINGULARE"):
     executar("cndt", empresa_key)
     executar("regularidade_fgts", empresa_key)
-    executar("cn_tributos_municipais",empresa_key)
-    executar("c_distribuidores_justica_trabalho", empresa_key)
+    executar("c_distribuidores_justica_trabalho1", empresa_key)
+    executar("c_distribuidores_justica_trabalho2", empresa_key)
 
 
 if __name__ == "__main__":
-    executar("c_distribuidores_justica_trabalho", "SINGULARE")
-    #emitir_todas("QI_GESTORA")
-
+    executar("c_distribuidores_justica_trabalho1", "SINGULARE")
+    # emitir_todas("SINGULARE")
