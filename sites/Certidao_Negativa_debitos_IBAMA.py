@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
 def emitir_c_negativa_debitos_ibama(driver, dados):
-    endereco = "Avenida Rebouças, 2942, nos andares 7º ao 12º, em Pinheiros, São Paulo - SP"
+    endereco = "Avenida Rebouças, 2942, 7º ao 12º, Pinheiros"
     bairro = "Jardim Paulistano, São Paulo – SP"
     driver.get(dados["url"])
     driver.maximize_window()
@@ -49,28 +49,38 @@ def emitir_c_negativa_debitos_ibama(driver, dados):
     nome_selecionar.click()
     for char in dados["razao_social"]:
         nome_selecionar.send_keys(char)
-        time.sleep(0.12)
+        time.sleep(0.07)
+    endereco_selecionar = wait.until(
+    EC.presence_of_element_located((By.ID, "cad_end_pessoa"))
+    )
+    endereco_selecionar.click()
+    for char in endereco:
+        endereco_selecionar.send_keys(char)
+        time.sleep(0.06)
+    bairro_selecionar = wait.until(
+    EC.presence_of_element_located((By.ID, "cad_des_bairro"))
+    )
+    bairro_selecionar.click()
+    for char in bairro:
+        bairro_selecionar.send_keys(char)
+        time.sleep(0.06)
+    
+    select_uf = Select(
+    wait.until(EC.presence_of_element_located((By.ID, "cad_cod_uf")))
+    )   
+
+    select_uf.select_by_value("35")
+    time.sleep(1)
+    select_mun = Select(
+        wait.until(EC.presence_of_element_located((By.ID, "cad_cod_municipio")))
+        )   
+    select_mun.select_by_value("3550308")
+    time.sleep(0.4)
+    botao_confirmar = wait.until(
+    EC.element_to_be_clickable((By.ID, "btnConfirmar"))
+)
+    botao_confirmar.click()
+    time.sleep(3)
+    botao_confirmar = wait.until(EC.element_to_be_clickable((By.ID, "btnConfirmar")))
+    print('Salve manualmente')
     input()
-    print("Aguardando download do PDF")
-    arquivo_pdf_novo = None
-    timeout = time.time() + 20  
-
-    while time.time() < timeout:
-        arquivos_depois = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
-        novos = list(set(arquivos_depois) - set(arquivos_antes))
-        if novos:
-            arquivo_pdf_novo = novos[0]
-            break
-        time.sleep(0.4)
-
-    if not arquivo_pdf_novo:
-        print("Nenhum PDF foi baixado")
-        return
-
-  
-    nome_final = f"Certidao_Conjunta_Debitos_Tributos_Mobiliarios{dados['nome']}.pdf"
-    caminho_final = os.path.join(pasta_final, nome_final)
-
-    os.rename(arquivo_pdf_novo, caminho_final)
-
-    print("PDF salvo em:", caminho_final)

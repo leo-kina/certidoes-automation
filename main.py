@@ -64,6 +64,7 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("c_tribunal_regional_3_civel", empresa_key)
     executar("c_tribunal_regional_3_criminal", empresa_key)
     executar("c_conjunta_debitos_tributos_mobiliarios", empresa_key)
+    executar("c_negativa_debitos_ibama", empresa_key)
 
 
 if __name__ == "__main__":
