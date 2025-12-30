@@ -9,7 +9,7 @@ from sites.Certidões_Distribuidores_Justiça_Trabalho2 import emitir_distribuid
 from sites.Justica_Federal_da_3_Regiao_civiel import emitir_justica_3_civel 
 from sites.Justica_Federal_da_3_Regiao_criminal import emitir_justica_3_criminal
 from sites.Certidao_conjunta_Debitos_Tributos_Mobiliarios import emitir_c_conjunta_mobiliarios
-
+from sites.Certidao_Negativa_debitos_IBAMA import emitir_c_negativa_debitos_ibama
 def executar(site, empresa_key="SINGULARE"):
     dados = empresas.get(empresa_key)
 
@@ -43,6 +43,8 @@ def executar(site, empresa_key="SINGULARE"):
             emitir_justica_3_criminal(driver,dados)
         elif site == "c_conjunta_debitos_tributos_mobiliarios":
             emitir_c_conjunta_mobiliarios(driver,dados)
+        elif site == "c_negativa_debitos_ibama":
+            emitir_c_negativa_debitos_ibama(driver,dados)
 
 
         print(" Certidão emitida com sucesso")
@@ -65,7 +67,7 @@ def emitir_todas(empresa_key="SINGULARE"):
 
 
 if __name__ == "__main__":
-
+    executar("c_negativa_debitos_ibama", "SINGULARE")
 
     
-    emitir_todas("SINGULARE")
+    #emitir_todas("SINGULARE")
