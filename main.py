@@ -50,7 +50,7 @@ def executar(site, empresa_key="SINGULARE"):
             emitir_c_embargos_regularidades_ibama(driver, dados)
 
 
-        print(" Certidão emitida com sucesso")
+        print("Certidão emitida com sucesso")
 
     except Exception as e:
         print(f"Erro durante a emissão: {e}")
