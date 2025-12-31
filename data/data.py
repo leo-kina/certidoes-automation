@@ -15,3 +15,4 @@ empresas = {
         "cnpj": "62285390000140",
     }
 }
+email = "leonardo.kina@qitech.com.br"
