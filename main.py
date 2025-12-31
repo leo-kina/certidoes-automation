@@ -10,6 +10,7 @@ from sites.Justica_Federal_da_3_Regiao_civiel import emitir_justica_3_civel
 from sites.Justica_Federal_da_3_Regiao_criminal import emitir_justica_3_criminal
 from sites.Certidao_conjunta_Debitos_Tributos_Mobiliarios import emitir_c_conjunta_mobiliarios
 from sites.Certidao_Negativa_debitos_IBAMA import emitir_c_negativa_debitos_ibama
+from sites.Certidao_regulridade_embargos_IBAMA import emitir_c_embargos_regularidades_ibama
 def executar(site, empresa_key="SINGULARE"):
     dados = empresas.get(empresa_key)
 
@@ -45,6 +46,8 @@ def executar(site, empresa_key="SINGULARE"):
             emitir_c_conjunta_mobiliarios(driver,dados)
         elif site == "c_negativa_debitos_ibama":
             emitir_c_negativa_debitos_ibama(driver,dados)
+        elif site == "c_ibama_embargo_regularidade":
+            emitir_c_embargos_regularidades_ibama(driver, dados)
 
 
         print(" Certidão emitida com sucesso")
@@ -65,10 +68,11 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("c_tribunal_regional_3_criminal", empresa_key)
     executar("c_conjunta_debitos_tributos_mobiliarios", empresa_key)
     executar("c_negativa_debitos_ibama", empresa_key)
+    executar("c_ibama_embargo_regularidade", empresa_key)
 
 
 if __name__ == "__main__":
-    executar("c_negativa_debitos_ibama", "SINGULARE")
+    executar("c_ibama_embargo_regularidade", "SINGULARE")
 
     
     #emitir_todas("SINGULARE")
