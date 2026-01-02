@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
-#python -m sites.socios.Emilio.execucao_criminal_emilio
+#python -m sites.socios.Emilio.acoes_criminais_emilio
 
 
 
@@ -31,7 +31,7 @@ rg = socio['rg']
 nome_mae= socio["mae"]
 nome_pai= socio["pai"]
 nascimento = '10061990'
-def emitir_execucao_criminal(driver, url):
+def emitir_acoes_criminal(driver, url):
     driver.get(url)
     driver.maximize_window()
 
@@ -45,7 +45,7 @@ def emitir_execucao_criminal(driver, url):
     EC.presence_of_element_located((By.ID, "cdModelo"))
     )
 
-    Select(select_tipo).select_by_value("94")
+    Select(select_tipo).select_by_value("6")
     time.sleep(1.2)
     campo_nome = wait.until(
         EC.presence_of_element_located((By.ID, "nmCadastroF"))
@@ -139,7 +139,7 @@ def emitir_execucao_criminal(driver, url):
 if __name__ == "__main__":
     driver = webdriver.Chrome()
 
-    emitir_execucao_criminal(
+    emitir_acoes_criminal(
         driver=driver,
         url=SETTINGS["c_execucao_acoes_criminal"]  
     )
