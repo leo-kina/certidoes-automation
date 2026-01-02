@@ -72,7 +72,7 @@ def emitir_todas(empresa_key="SINGULARE"):
 
 
 if __name__ == "__main__":
-    executar("c_ibama_embargo_regularidade", "SINGULARE")
+    #executar("c_ibama_embargo_regularidade", "SINGULARE")
 
     
-    #emitir_todas("SINGULARE")
+    emitir_todas("SINGULARE")
