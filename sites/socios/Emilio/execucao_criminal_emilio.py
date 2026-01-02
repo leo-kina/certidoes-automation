@@ -26,7 +26,11 @@ with open(json_path, "r", encoding="utf-8") as f:
 
 socio = SOCIOS_JSON["Emilio Moreira"]
 nome = socio["nome"]
-1
+cpf = socio["cpf"]
+rg = socio['rg']
+nome_mae= socio["mae"]
+nome_pai= socio["pai"]
+nascimento = '10061990'
 def emitir_execucao_criminal(driver, url):
     driver.get(url)
     driver.maximize_window()
@@ -52,10 +56,84 @@ def emitir_execucao_criminal(driver, url):
 
     for char in nome:
         campo_nome.send_keys(char)
-        time.sleep(0.12)
+        time.sleep(0.04)
+    campo_cpf = wait.until(
+        EC.presence_of_element_located((By.ID, "identity.nuCpfFormatado"))
+    )
 
+    campo_cpf.click()
+    time.sleep(0.5)
+
+    for char in cpf:
+        campo_cpf.send_keys(char)
+        time.sleep(0.04)
     
-    print("Teste")
+    campo_rg = wait.until(
+        EC.presence_of_element_located((By.ID, "identity.nuRgFormatado"))
+    )
+
+    campo_rg.click()
+    time.sleep(0.5)
+
+    for char in rg:
+        campo_rg.send_keys(char)
+        time.sleep(0.04)
+    campo_genero_m = wait.until(
+    EC.element_to_be_clickable((By.ID, "flGeneroM"))
+    )
+    campo_genero_m.click()
+
+    campo_mae = wait.until(
+        EC.presence_of_element_located((By.ID, "nmMaeCadastro"))
+    )
+
+    campo_mae.click()
+    time.sleep(0.5)
+
+    for char in nome_mae:
+        campo_mae.send_keys(char)
+        time.sleep(0.04)
+    campo_pai = wait.until(
+        EC.presence_of_element_located((By.ID, "nmPaiCadastro"))
+    )
+
+    campo_pai.click()
+    time.sleep(0.5)
+
+    for char in nome_pai:
+        campo_pai.send_keys(char)
+        time.sleep(0.04)
+    campo_nacimento = wait.until(
+        EC.presence_of_element_located((By.ID, "dataNascimento"))
+    )
+
+    campo_nacimento.click()
+    time.sleep(0.5)
+
+    for char in nascimento:
+        campo_nacimento.send_keys(char)
+        time.sleep(0.04)
+    campo_email = wait.until(
+        EC.presence_of_element_located((By.ID, "identity.solicitante.deEmail"))
+    )
+
+    campo_email.click()
+    time.sleep(0.5)
+
+    for char in email:
+        campo_email.send_keys(char)
+        time.sleep(0.04)
+    checkbox = wait.until(
+    EC.element_to_be_clickable((By.ID, "confirmacaoInformacoes"))
+)
+    checkbox.click()
+    botao_enviar = wait.until(
+    EC.element_to_be_clickable((By.ID, "pbEnviar"))
+)
+
+    botao_enviar.click()
+
+
     input("")
 
 if __name__ == "__main__":
