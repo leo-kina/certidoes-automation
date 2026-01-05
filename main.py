@@ -11,6 +11,8 @@ from sites.Justica_Federal_da_3_Regiao_criminal import emitir_justica_3_criminal
 from sites.Certidao_conjunta_Debitos_Tributos_Mobiliarios import emitir_c_conjunta_mobiliarios
 from sites.Certidao_Negativa_debitos_IBAMA import emitir_c_negativa_debitos_ibama
 from sites.Certidao_regulridade_embargos_IBAMA import emitir_c_embargos_regularidades_ibama
+from sites.Certidao_acoes_criminais import emitir_acoes_criminal
+from sites.Certidao_execucao_criminal import emitir_execucao_criminal
 def executar(site, empresa_key="SINGULARE"):
     dados = empresas.get(empresa_key)
 
@@ -48,6 +50,12 @@ def executar(site, empresa_key="SINGULARE"):
             emitir_c_negativa_debitos_ibama(driver,dados)
         elif site == "c_ibama_embargo_regularidade":
             emitir_c_embargos_regularidades_ibama(driver, dados)
+        elif site == "c_execucao_acoes_criminal":
+            emitir_acoes_criminal(driver,dados)
+        elif site == "c_execucao_criminal":
+            emitir_execucao_criminal(driver,dados)
+        
+        
 
 
         print("Certidão emitida com sucesso")
@@ -69,10 +77,12 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("c_conjunta_debitos_tributos_mobiliarios", empresa_key)
     executar("c_negativa_debitos_ibama", empresa_key)
     executar("c_ibama_embargo_regularidade", empresa_key)
+    executar("c_execucao_acoes_criminal", empresa_key)
+    executar("c_execucao_criminal", empresa_key)
 
 
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
+    executar("c_execucao_criminal", "SINGULARE")
 
-    
-    emitir_todas("SINGULARE")
+    #emitir_todas("SINGULARE")
