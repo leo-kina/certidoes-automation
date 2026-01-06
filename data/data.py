@@ -11,7 +11,7 @@ empresas = {
     },
     "SINGULARE": {
         "nome": "Singulare",
-        "razao_social": "Singulare Corretora de Títulos e Valores Mobiliários S.A",
+        "razao_social": "S1",
         "cnpj": "62285390000140",
     }
 }

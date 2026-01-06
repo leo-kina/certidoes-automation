@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
-#python -m sites.socios.Emilio.acoes_criminais_emilio
+#python -m sites.socios.Valquiria.acoes_criminais_valk
 
 
 
@@ -24,7 +24,7 @@ json_path = os.getenv("SOCIOS_JSON_PATH")
 with open(json_path, "r", encoding="utf-8") as f:
     SOCIOS_JSON = json.load(f)
 
-socio = SOCIOS_JSON["Emilio Moreira"]
+socio = SOCIOS_JSON["Valquiria Matsui"]
 nome = socio["nome"]
 cpf = socio["cpf"]
 rg = socio['rg']

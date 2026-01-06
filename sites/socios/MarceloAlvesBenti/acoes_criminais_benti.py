@@ -30,7 +30,7 @@ cpf = socio["cpf"]
 rg = socio['rg']
 nome_mae= socio["mae"]
 nome_pai= socio["pai"]
-nascimento = '10061990'
+nascimento = socio["nascimento"]
 def emitir_acoes_criminal(driver, url):
     driver.get(url)
     driver.maximize_window()

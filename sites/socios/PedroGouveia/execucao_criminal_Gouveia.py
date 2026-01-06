@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
-#python -m sites.socios.Emilio.acoes_criminais_emilio
+#python -m sites.socios.PedroGouveia.execucao_criminal_Gouveia
 
 
 
@@ -24,14 +24,14 @@ json_path = os.getenv("SOCIOS_JSON_PATH")
 with open(json_path, "r", encoding="utf-8") as f:
     SOCIOS_JSON = json.load(f)
 
-socio = SOCIOS_JSON["Emilio Moreira"]
+socio = SOCIOS_JSON["Pedro Calil"]
 nome = socio["nome"]
 cpf = socio["cpf"]
 rg = socio['rg']
 nome_mae= socio["mae"]
 nome_pai= socio["pai"]
 nascimento = socio["nascimento"]
-def emitir_acoes_criminal(driver, url):
+def emitir_execucao_criminal(driver, url):
     driver.get(url)
     driver.maximize_window()
 
@@ -45,7 +45,7 @@ def emitir_acoes_criminal(driver, url):
     EC.presence_of_element_located((By.ID, "cdModelo"))
     )
 
-    Select(select_tipo).select_by_value("6")
+    Select(select_tipo).select_by_value("94")
     time.sleep(1.2)
     campo_nome = wait.until(
         EC.presence_of_element_located((By.ID, "nmCadastroF"))
@@ -139,7 +139,7 @@ def emitir_acoes_criminal(driver, url):
 if __name__ == "__main__":
     driver = webdriver.Chrome()
 
-    emitir_acoes_criminal(
+    emitir_execucao_criminal(
         driver=driver,
         url=SETTINGS["c_execucao_acoes_criminal"]  
     )
