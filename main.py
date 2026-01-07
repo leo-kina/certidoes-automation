@@ -84,5 +84,6 @@ def emitir_todas(empresa_key="SINGULARE"):
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
     #executar("c_execucao_criminal", "QI_SDC")
+    #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
     emitir_todas("QI_SDC")
