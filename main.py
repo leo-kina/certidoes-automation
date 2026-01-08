@@ -13,7 +13,7 @@ from sites.Certidao_Negativa_debitos_IBAMA import emitir_c_negativa_debitos_ibam
 from sites.Certidao_regulridade_embargos_IBAMA import emitir_c_embargos_regularidades_ibama
 from sites.Certidao_acoes_criminais import emitir_acoes_criminal
 from sites.Certidao_execucao_criminal import emitir_execucao_criminal
-def executar(site, empresa_key="QI_SDC"):
+def executar(site, empresa_key="QI_GESTORA"):
     dados = empresas.get(empresa_key)
 
     if not dados:
@@ -83,7 +83,7 @@ def emitir_todas(empresa_key="SINGULARE"):
 
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
-    #executar("c_execucao_criminal", "QI_SDC")
+    executar("c_execucao_criminal", "QI_GESTORA")
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
-    emitir_todas("QI_SDC")
+    #emitir_todas("QI_SDC")
