@@ -15,7 +15,8 @@ SETTINGS = {
     "c_ibama_embargo_regularidade":"https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php",
     "c_execucao_acoes_criminal": "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
     "c_execucao_criminal": "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
-    "c_distribuicao_civel":"https://esaj.tjsp.jus.br/sco/abrirCadastro.do"
+    "c_distribuicao_civel":"https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
+    "c_falencia_concordatas_recuperacao" : "https://esaj.tjsp.jus.br/sco/abrirCadastro.do"
 
-}
-
+            
+    }
