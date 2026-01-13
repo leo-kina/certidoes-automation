@@ -15,6 +15,7 @@ from sites.Certidao_acoes_criminais import emitir_acoes_criminal
 from sites.Certidao_execucao_criminal import emitir_execucao_criminal
 from sites.certidao_distribuicao_civel import emitir_distribuicao_civel
 from sites.certidao_falencia_concordatas_recuperacao import emitir_falencia_concordatas_recuperacao
+from sites.ceritdao_feitos_gerais import emitir_feitos_gerais
 def executar(site, empresa_key="QI_SDC"):
     dados = empresas.get(empresa_key)
 
@@ -60,6 +61,9 @@ def executar(site, empresa_key="QI_SDC"):
             emitir_distribuicao_civel(driver,dados)
         elif site == "c_falencia_concordatas_recuperacao":
             emitir_falencia_concordatas_recuperacao(driver,dados)
+        elif site == "c_feitos_gerais":
+            emitir_feitos_gerais(driver,dados)
+
 
         
         
@@ -87,13 +91,15 @@ def emitir_todas(empresa_key="SINGULARE"):
     executar("c_execucao_acoes_criminal", empresa_key)
     executar("c_execucao_criminal", empresa_key)
     executar("c_distribuicao_civel", empresa_key)
-    executar("emitir_falencia_concordatas_recuperacao", empresa_key)
+    executar("c_falencia_concordatas_recuperacao", empresa_key)
+    executar("c_feitos_gerais", empresa_key)
 
 
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
     #executar("c_execucao_criminal", "QI_GESTORA")
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
-    executar("c_falencia_concordatas_recuperacao", "SINGULARE")
+    #executar("c_falencia_concordatas_recuperacao", "SINGULARE")
+    executar("c_feitos_gerais", "SINGULARE")
 
     #emitir_todas("QI_SDC")

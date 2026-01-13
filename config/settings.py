@@ -16,7 +16,8 @@ SETTINGS = {
     "c_execucao_acoes_criminal": "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
     "c_execucao_criminal": "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
     "c_distribuicao_civel":"https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
-    "c_falencia_concordatas_recuperacao" : "https://esaj.tjsp.jus.br/sco/abrirCadastro.do"
+    "c_falencia_concordatas_recuperacao" : "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
+    "c_feitos_gerais":"http://www.prt2.mpt.mp.br/index.php?option=com_mpt&view=certidaoneg"
 
             
     }
