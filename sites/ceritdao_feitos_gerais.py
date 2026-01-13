@@ -13,10 +13,6 @@ def emitir_feitos_gerais(driver, dados):
 
     wait = WebDriverWait(driver, 20)
 
-    pasta_downloads = r"C:\Users\leonardo.kina\Downloads"
-    pasta_final = r"C:\Users\leonardo.kina\Downloads\Certidoes_teste"
-
-    arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
     time.sleep(1.2)
 
     campo_cnpj = wait.until(

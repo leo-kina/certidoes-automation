@@ -13,10 +13,6 @@ def emitir_distribuicao_civel(driver, dados):
 
     wait = WebDriverWait(driver, 20)
 
-    pasta_downloads = r"C:\Users\leonardo.kina\Downloads"
-    pasta_final = r"C:\Users\leonardo.kina\Downloads\Certidoes_teste"
-
-    arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
     select_tipo = wait.until(
     EC.presence_of_element_located((By.ID, "cdModelo"))
     )
