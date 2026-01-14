@@ -18,7 +18,8 @@ SETTINGS = {
     "c_distribuicao_civel":"https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
     "c_falencia_concordatas_recuperacao" : "https://esaj.tjsp.jus.br/sco/abrirCadastro.do",
     "c_feitos_gerais":"http://www.prt2.mpt.mp.br/index.php?option=com_mpt&view=certidaoneg",
-    "c_negativa_cadastro_nacional_condenacao_civeis": "https://www.cnj.jus.br/improbidade_adm/consultar_requerido.php"
+    "c_negativa_cadastro_nacional_condenacao_civeis": "https://www.cnj.jus.br/improbidade_adm/consultar_requerido.php",
+    "c_acoes_trabalhista_tramitacao_processos_fisicos": "https://aplicacoes10.trt2.jus.br/certidao_trabalhista_eletronica/public/index.php/index/solicitacao"
 
             
     }

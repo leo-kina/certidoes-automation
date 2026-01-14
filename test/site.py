@@ -1,6 +1,5 @@
 
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
 
 
 #python test/site.py
@@ -10,7 +9,7 @@ def teste(driver, url):
     driver.get(url)
     driver.maximize_window()
 
-    wait = WebDriverWait(driver, 20)
+
 
     input()
 if __name__ == "__main__":
@@ -18,7 +17,7 @@ if __name__ == "__main__":
 
     teste(
         driver=driver,
-        url="https://www.cnj.jus.br/improbidade_adm/consultar_requerido.php"  
+        url="https://aplicacoes10.trt2.jus.br/certidao_trabalhista_eletronica/public/index.php/index/solicitacao"  
     )
     print("Finalizado")
     driver.quit()
