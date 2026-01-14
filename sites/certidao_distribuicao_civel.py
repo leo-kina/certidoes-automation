@@ -60,8 +60,6 @@ def emitir_distribuicao_civel(driver, dados):
     EC.element_to_be_clickable((By.ID, "pbEnviar"))
 )
 
+    print('Certidao Enviada para o email')
     botao_enviar.click()
-    print('Clique Enter para finalizar')
-    input()
-
 

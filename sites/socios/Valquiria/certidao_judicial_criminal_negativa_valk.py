@@ -1,35 +1,54 @@
-import time
 import os
 import glob
-from selenium.webdriver.common.by import By
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from data.data import email
+from config.settings import SETTINGS
+from selenium.webdriver.support.ui import Select
+import json
+from dotenv import load_dotenv
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
-def emitir_c_judicial_criminal(driver, dados):
-    driver.get(dados["url"])
+
+#python -m sites.socios.Valquiria.certidao_judicial_criminal_negativa_valk
+
+
+
+
+load_dotenv()
+
+json_path = os.getenv("SOCIOS_JSON_PATH")
+
+with open(json_path, "r", encoding="utf-8") as f:
+    SOCIOS_JSON = json.load(f)
+
+socio = SOCIOS_JSON["Valquiria Matsui"]
+cpf = socio["cpf"]
+def emitir_c_judicial_criminal(driver, url):
+    driver.get(url)
     driver.maximize_window()
+
     wait = WebDriverWait(driver, 20)
-
-
     driver.execute_script("""
-    const radio = document.getElementById('cnpj');
+    const radio = document.getElementById('cpf');
     radio.checked = true;
     radio.dispatchEvent(new Event('change', { bubbles: true }));
 """)
 
    
-    campo_cnpj = wait.until(
+    campo_cpf = wait.until(
         EC.presence_of_element_located((By.XPATH,
     "//input[@name='cpfCnpj']"
         ))
     )
-    campo_cnpj.click()
+    campo_cpf.click()
     time.sleep(0.5)
 
  
-    for char in dados["cnpj"]:
-        campo_cnpj.send_keys(char)
+    for char in cpf:
+        campo_cpf.send_keys(char)
         time.sleep(0.05)
 
     campo_email = wait.until(
@@ -61,5 +80,19 @@ def emitir_c_judicial_criminal(driver, dados):
 )
     driver.execute_script("arguments[0].click();", botao)
     print("Espere a confirmacao e depois clique no Enter")
-    print('Certidao Enviada para o email')
     input()
+
+   
+
+
+
+
+if __name__ == "__main__":
+    driver = webdriver.Chrome()
+
+    emitir_c_judicial_criminal(
+        driver=driver,
+        url=SETTINGS["c_judicial_criminal_negativa_jf"]  
+    )
+    print("Finalizado")
+    driver.quit()

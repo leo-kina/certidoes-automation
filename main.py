@@ -36,6 +36,7 @@ def executar(site, empresa_key):
     driver = criar_driver()
 
     try:
+        print(f"\n📄 Emitindo certidão: {site}")
         if site == "cndt":
             emitir_cndt(driver, dados)
 
@@ -115,11 +116,11 @@ def emitir_todas(empresa_key):
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
     #executar("c_negativa_correcional", "SINGULARE")
-    executar("c_judicial_criminal_negativa_jf", "SINGULARE")
+    #executar("c_judicial_criminal_negativa_jf", "QI_GESTORA")
 
     
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
 
 
-    #emitir_todas("QI_SDC")
+    emitir_todas("QI_GESTORA")

@@ -14,7 +14,7 @@ def emitir_cndt(driver, dados):
     pasta_downloads = r"C:\Users\leonardo.kina\Downloads"
     pasta_final = r"C:\Users\leonardo.kina\Downloads\Certidoes_teste"
 
- 
+    
     arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
 
     botao_emitir_inicial = wait.until(
