@@ -20,7 +20,7 @@ SETTINGS = {
     "c_feitos_gerais":"http://www.prt2.mpt.mp.br/index.php?option=com_mpt&view=certidaoneg",
     "c_negativa_cadastro_nacional_condenacao_civeis": "https://www.cnj.jus.br/improbidade_adm/consultar_requerido.php",
     "c_acoes_trabalhista_tramitacao_processos_fisicos": "https://aplicacoes10.trt2.jus.br/certidao_trabalhista_eletronica/public/index.php/index/solicitacao",
-    "c_negativa_correcional":"https://certidoes.cgu.gov.br/"
-
+    "c_negativa_correcional":"https://certidoes.cgu.gov.br/",
+    "c_judicial_criminal_negativa_jf":"https://certidao-unificada.cjf.jus.br/#/solicitacao-certidao"
             
     }

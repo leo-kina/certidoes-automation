@@ -19,6 +19,7 @@ from sites.ceritdao_feitos_gerais import emitir_feitos_gerais
 from sites.certidao_negativa_cadastro_nacional_condenacao_civeis import emitir_negativa_cadastro_nacional_condenacao_civeis
 from sites.certidao_acaoa_trabalhista_processos_fisicos import emitir_c_processos_acaoa_trabalhista_processos_fisicos
 from sites.Certidao_Negativa_Correcional import emitir_c_negativa_correcional
+from sites.certidao_judicial_criminal_negativa_jf import emitir_c_judicial_criminal
 def executar(site, empresa_key):
     dados = empresas.get(empresa_key)
 
@@ -72,6 +73,8 @@ def executar(site, empresa_key):
             emitir_c_processos_acaoa_trabalhista_processos_fisicos(driver,dados)
         elif site == "c_negativa_correcional":
             emitir_c_negativa_correcional(driver,dados)
+        elif site == "c_judicial_criminal_negativa_jf":
+            emitir_c_judicial_criminal(driver,dados)
 
 
 
@@ -106,15 +109,17 @@ def emitir_todas(empresa_key):
     executar("c_negativa_cadastro_nacional_condenacao_civeis", empresa_key)
     executar("c_acoes_trabalhista_tramitacao_processos_fisicos", empresa_key)
     executar("c_negativa_correcional", empresa_key)
+    executar("c_judicial_criminal_negativa_jf", empresa_key)
 
 
 if __name__ == "__main__":
     #executar("c_ibama_embargo_regularidade", "SINGULARE")
     #executar("c_negativa_correcional", "SINGULARE")
+    executar("c_judicial_criminal_negativa_jf", "SINGULARE")
 
     
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
 
 
-    emitir_todas("QI_SDC")
+    #emitir_todas("QI_SDC")

@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     teste(
         driver=driver,
-        url="https://certidoes.cgu.gov.br/"  
+        url="https://certidao-unificada.cjf.jus.br/#/solicitacao-certidao"  
     )
     print("Finalizado")
     driver.quit()
