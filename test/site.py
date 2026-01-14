@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     teste(
         driver=driver,
-        url="https://aplicacoes10.trt2.jus.br/certidao_trabalhista_eletronica/public/index.php/index/solicitacao"  
+        url="https://certidoes.cgu.gov.br/"  
     )
     print("Finalizado")
     driver.quit()

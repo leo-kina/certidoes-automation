@@ -32,7 +32,7 @@ def emitir_c_processos_acaoa_trabalhista_processos_fisicos(driver, dados):
  
     for char in dados["cnpj"]:
         campo_cnpj.send_keys(char)
-        time.sleep(0.12)
+        time.sleep(0.05)
 
     campo_razao = wait.until(
     EC.presence_of_element_located((By.ID, "nomePesquisado"))
@@ -43,7 +43,7 @@ def emitir_c_processos_acaoa_trabalhista_processos_fisicos(driver, dados):
  
     for char in dados["razao_social"]:
         campo_razao.send_keys(char)
-        time.sleep(0.12)
+        time.sleep(0.05)
     
 
     print('Resolva o Captcha e depois clique no enter')
@@ -76,7 +76,7 @@ def emitir_c_processos_acaoa_trabalhista_processos_fisicos(driver, dados):
         return
 
   
-    nome_final = f"Certidao_ação_trabalhista_processos_fisicos{dados['nome']}.pdf"
+    nome_final = f"Certidao_ação_trabalhista_processos_fisicos_{dados['nome']}.pdf"
     caminho_final = os.path.join(pasta_final, nome_final)
 
     os.rename(arquivo_pdf_novo, caminho_final)

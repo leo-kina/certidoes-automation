@@ -4,9 +4,9 @@ import glob
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
 
-def emitir_c_conjunta_mobiliarios(driver, dados):
+
+def emitir_c_negativa_correcional(driver, dados):
     driver.get(dados["url"])
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)
@@ -16,29 +16,40 @@ def emitir_c_conjunta_mobiliarios(driver, dados):
 
  
     arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
-    select_tipo = wait.until(
-    EC.presence_of_element_located((By.ID, "ctl00_ConteudoPrincipal_ddlTipoCertidao"))
-    )
 
-    Select(select_tipo).select_by_value("1")
-    time.sleep(1.2)
-    
+    radio = wait.until(
+    EC.element_to_be_clickable(
+        (By.XPATH, "//label[@for='__BVID__21']")
+    )
+)
+    radio.click()
+
+   
     campo_cnpj = wait.until(
-        EC.presence_of_element_located((By.ID, "ctl00_ConteudoPrincipal_txtCNPJ"))
+        EC.presence_of_element_located((By.ID, "cpfCnpj"))
     )
-
     campo_cnpj.click()
-    time.sleep(0.5)
+    time.sleep(0.2)
 
+ 
     for char in dados["cnpj"]:
         campo_cnpj.send_keys(char)
         time.sleep(0.12)
 
-    
-    print("Digite manualmente o CAPTCHA, e depois clique no enter (no terminal)")
-    input()
-    driver.find_element(By.ID, "ctl00_ConteudoPrincipal_btnEmitir").click()
-    print("Resolva o Captcha e depois clique em submit")
+
+    botao_consultar = wait.until(
+    EC.element_to_be_clickable((By.ID, "consultar"))
+)
+    botao_consultar.click()
+    time.sleep(2)
+    botao = wait.until(
+    EC.element_to_be_clickable(
+        (By.XPATH, "//button[.//i[contains(@class,'fa-file-pdf')]]")
+    )
+)
+    botao.click()
+
+    print("Aguardando download do PDF")
     arquivo_pdf_novo = None
     timeout = time.time() + 20  
 
@@ -55,7 +66,7 @@ def emitir_c_conjunta_mobiliarios(driver, dados):
         return
 
   
-    nome_final = f"Certidao_Conjunta_Debitos_Tributos_Mobiliarios{dados['nome']}.pdf"
+    nome_final = f"Certidao_negativa_correcional_{dados['nome']}.pdf"
     caminho_final = os.path.join(pasta_final, nome_final)
 
     os.rename(arquivo_pdf_novo, caminho_final)

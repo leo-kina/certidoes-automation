@@ -38,6 +38,6 @@ def emitir_c_embargos_regularidades_ibama(driver, dados):
     botao_selecionar.click()
 
     
-    print("Salve Manualmente")
+    print("Salve Manualmente e depois clique no Enter")
     input()
    

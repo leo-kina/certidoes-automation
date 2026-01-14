@@ -79,8 +79,9 @@ def emitir_c_negativa_debitos_ibama(driver, dados):
     botao_confirmar = wait.until(
     EC.element_to_be_clickable((By.ID, "btnConfirmar"))
 )
+    print('Salve manualmente e depois clique no Enter')
     botao_confirmar.click()
     time.sleep(3)
     botao_confirmar = wait.until(EC.element_to_be_clickable((By.ID, "btnConfirmar")))
-    print('Salve manualmente')
+   
     input()
