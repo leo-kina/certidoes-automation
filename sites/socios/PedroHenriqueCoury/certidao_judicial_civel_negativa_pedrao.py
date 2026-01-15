@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
-#python -m sites.socios.Emilio.certidao_judicial_criminal_negativa_emilio
+#python -m sites.socios.PedroHenriqueCoury.certidao_judicial_civel_negativa_pedrao
 
 
 
@@ -24,13 +24,23 @@ json_path = os.getenv("SOCIOS_JSON_PATH")
 with open(json_path, "r", encoding="utf-8") as f:
     SOCIOS_JSON = json.load(f)
 
-socio = SOCIOS_JSON["Emilio Moreira"]
+socio = SOCIOS_JSON["Pedro Coury"]
 cpf = socio["cpf"]
-def emitir_c_judicial_criminal(driver, url):
+def emitir_c_civel_judicial(driver, url):
     driver.get(url)
     driver.maximize_window()
 
     wait = WebDriverWait(driver, 20)
+    dropdown = wait.until(
+    EC.element_to_be_clickable((By.CSS_SELECTOR, "p-dropdown[formcontrolname='tipo']"))
+)
+    dropdown.click()
+
+
+    opcao_civel = wait.until(
+    EC.element_to_be_clickable((By.XPATH, "//li[@role='option']//span[text()='Cível']"))
+)
+    opcao_civel.click()
     driver.execute_script("""
     const radio = document.getElementById('cpf');
     radio.checked = true;
@@ -83,7 +93,6 @@ def emitir_c_judicial_criminal(driver, url):
     input()
 
 
-
    
 
 
@@ -92,9 +101,9 @@ def emitir_c_judicial_criminal(driver, url):
 if __name__ == "__main__":
     driver = webdriver.Chrome()
 
-    emitir_c_judicial_criminal(
+    emitir_c_civel_judicial(
         driver=driver,
-        url=SETTINGS["c_judicial_criminal_negativa_jf"]  
+        url=SETTINGS["c_judicial_civel_negativa_jf"]  
     )
     print("Finalizado")
     driver.quit()

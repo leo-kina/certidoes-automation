@@ -60,6 +60,5 @@ def emitir_c_judicial_criminal(driver, dados):
     ))
 )
     driver.execute_script("arguments[0].click();", botao)
-    print("Espere a confirmacao e depois clique no Enter")
-    print('Certidao Enviada para o email')
+    print('Certidao Enviada para o email (espere a confirmacao do site e depois clique no ENTER)')
     input()

@@ -20,6 +20,8 @@ from sites.certidao_negativa_cadastro_nacional_condenacao_civeis import emitir_n
 from sites.certidao_acaoa_trabalhista_processos_fisicos import emitir_c_processos_acaoa_trabalhista_processos_fisicos
 from sites.Certidao_Negativa_Correcional import emitir_c_negativa_correcional
 from sites.certidao_judicial_criminal_negativa_jf import emitir_c_judicial_criminal
+from sites.certidao_judicial_civel_negativa_jf import emitir_c_civel_judicial_criminal
+from sites.certidao_negativa_debitos_divida_ativa import emitir_c_negativa_debitos_divida_ativa
 def executar(site, empresa_key):
     dados = empresas.get(empresa_key)
 
@@ -76,6 +78,10 @@ def executar(site, empresa_key):
             emitir_c_negativa_correcional(driver,dados)
         elif site == "c_judicial_criminal_negativa_jf":
             emitir_c_judicial_criminal(driver,dados)
+        elif site == "c_judicial_civel_negativa_jf":
+            emitir_c_civel_judicial_criminal(driver,dados)
+        elif site == "c_negativa_debitos_divida_ativa":
+            emitir_c_negativa_debitos_divida_ativa(driver,dados)
 
 
 
@@ -111,6 +117,8 @@ def emitir_todas(empresa_key):
     executar("c_acoes_trabalhista_tramitacao_processos_fisicos", empresa_key)
     executar("c_negativa_correcional", empresa_key)
     executar("c_judicial_criminal_negativa_jf", empresa_key)
+    executar("c_judicial_civel_negativa_jf", empresa_key)
+    executar("c_negativa_debitos_divida_ativa", empresa_key)
 
 
 if __name__ == "__main__":
@@ -121,6 +129,8 @@ if __name__ == "__main__":
     
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
+    executar("c_negativa_debitos_divida_ativa", "QI_GESTORA")
+    
 
 
     emitir_todas("QI_GESTORA")
