@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 from config.settings import SETTINGS
 
 
-# python -m sites.socios.MarceloAlvesBenti.certidao_negativa_debitos_divida_ativa_benti
+# python -m sites.socios.ThiagoIslian.certidao_negativa_debitos_divida_ativa_thiago
 
 load_dotenv()
 
@@ -19,7 +19,7 @@ json_path = os.getenv("SOCIOS_JSON_PATH")
 with open(json_path, "r", encoding="utf-8") as f:
     SOCIOS_JSON = json.load(f)
 
-socio = SOCIOS_JSON["Marcelo Bentivoglio"]
+socio = SOCIOS_JSON["Thiago Bott"]
 nome = socio["nome"]
 cpf = socio["cpf"]
 
