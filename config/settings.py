@@ -23,6 +23,6 @@ SETTINGS = {
     "c_negativa_correcional":"https://certidoes.cgu.gov.br/",
     "c_judicial_criminal_negativa_jf":"https://certidao-unificada.cjf.jus.br/#/solicitacao-certidao",
     "c_judicial_civel_negativa_jf" :"https://certidao-unificada.cjf.jus.br/#/solicitacao-certidao",
-    "c_negativa_debitos_divida_ativa": "http://www.dividaativa.pge.sp.gov.br/"
-            
+    "c_negativa_debitos_divida_ativa": "http://www.dividaativa.pge.sp.gov.br/",
+    "c_consta_nada_consta": "https://processo.stj.jus.br/processo/certidao/emissao"           
     }

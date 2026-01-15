@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     teste(
         driver=driver,
-        url="http://www.dividaativa.pge.sp.gov.br/"  
+        url="https://processo.stj.jus.br/processo/certidao/emissao"  
     )
     print("Finalizado")
     driver.quit()
