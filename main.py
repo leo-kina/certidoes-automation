@@ -135,6 +135,6 @@ if __name__ == "__main__":
 
    #executar("c_consta_nada_consta", "QI_GESTORA")
     
-    #executar("c_negativa_debitos_divida_ativa", "SINGULARE")
+    executar("c_distribuicao_civel", "SINGULARE")
 
-    emitir_todas("QI_GESTORA")
+    #emitir_todas("QI_GESTORA")

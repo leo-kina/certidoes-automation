@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-email = "leonardo.kina@qitech.com.br"
+from data.data import email
 
 def emitir_falencia_concordatas_recuperacao(driver, dados):
     driver.get(dados["url"])

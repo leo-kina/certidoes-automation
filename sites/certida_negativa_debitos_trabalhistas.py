@@ -40,7 +40,6 @@ def emitir_cndt(driver, dados):
         EC.element_to_be_clickable((By.XPATH, "//input[@value='Emitir Certidão']"))
     )
     botao_emitir_final.click()
-
     print("Aguardando download do PDF")
     arquivo_pdf_novo = None
     timeout = time.time() + 20  
