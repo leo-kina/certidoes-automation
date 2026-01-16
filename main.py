@@ -133,8 +133,8 @@ if __name__ == "__main__":
     
     #certidoes de acao e execucao crimianl, sempre precisa ter um intervalo de 1 dia para funcionar 
 
-    executar("c_consta_nada_consta", "QI_GESTORA")
+   #executar("c_consta_nada_consta", "QI_GESTORA")
     
-
+    executar("c_negativa_debitos_divida_ativa", "SINGULARE")
 
     emitir_todas("QI_GESTORA")

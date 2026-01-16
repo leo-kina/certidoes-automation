@@ -16,7 +16,7 @@ def emitir_c_negativa_debitos_divida_ativa(driver, dados):
 
  
     arquivos_antes = glob.glob(os.path.join(pasta_downloads, "*.pdf"))
-
+    time.sleep(1.3)
     close_button = wait.until(EC.element_to_be_clickable(
     (By.XPATH, "//img[@onclick=\"Richfaces.hideModalPanel('modalPanelDebIpvaID')\"]")
 ))
