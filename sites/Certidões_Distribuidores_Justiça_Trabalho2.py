@@ -36,7 +36,7 @@ def emitir_distribuidores_justica_trabalho2(driver, dados):
         EC.element_to_be_clickable((By.XPATH, '//button[span[text()=" Emitir "]]'))
     )
     botao_emitir.click()
-    time.sleep(7)
+    time.sleep(2)
     botao_imprimir = driver.find_element(By.XPATH, '//button[span[text()="Imprimir"]]')
     botao_imprimir.click()
     time.sleep(1.4)
